@@ -18,7 +18,6 @@ const BlogForm = ({submitBook}) => {
         setTitle(''); 
         setAuthor(''); 
         setISBN(''); 
-        setPage('');
     }
 
     return (
@@ -31,7 +30,7 @@ const BlogForm = ({submitBook}) => {
                 onChange={(e) => setTitle(e.target.value)}></input>
             </div>
             <div>
-                Title <input className={'bookAuthor'}
+                Author <input className={'bookAuthor'}
                 placeholder={'Author'}
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)}></input>

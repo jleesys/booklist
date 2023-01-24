@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Togglable from './Togglable'
 
-const Book = ({ book }) => {
+const Book = ({ book, handleDeletion }) => {
 
     const [newPage, setNewPage] = useState('');
 
@@ -16,6 +16,13 @@ const Book = ({ book }) => {
         console.log('updating to page num ');
         book.page = newPage;
         setNewPage('');
+    }
+
+    const deleteBook = (e) => {
+        e.preventDefault();
+        console.log('deleting')
+        console.log(book);
+        handleDeletion(book);
     }
 
     return (
@@ -40,7 +47,7 @@ const Book = ({ book }) => {
                     <button type='submit'>Enter</button>
                     </form>
                 </div>
-                <button>Delete</button>
+                <button onClick={(e) => deleteBook(e)}>Delete</button>
             </Togglable>
         </div>
     )

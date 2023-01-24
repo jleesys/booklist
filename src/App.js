@@ -10,6 +10,14 @@ function App() {
     setBooks(newBooks);
   }
 
+  const handleDeletion = async (book) => {
+    const response = book;
+    const newBooks = books.filter(book => {
+      return book.isbn !== response.isbn
+    });
+    setBooks(newBooks);
+  }
+
   return (
     <div className="App">
       <h2>Submission Form</h2>
@@ -17,7 +25,9 @@ function App() {
       <br/>
       <h2>Books</h2>
       {books.map(book => {
-        return <Book book={book} key={book.isbn} ></Book>
+        return <Book book={book} 
+        key={book.isbn}
+        handleDeletion={handleDeletion} ></Book>
       })}
     </div>
   );
