@@ -4,19 +4,21 @@ const BlogForm = ({submitBook}) => {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [isbn, setISBN] = useState('');
+    const [page, setPage] = useState('');
 
     const createBook = (e) => {
         e.preventDefault();
         const book = {
             title: title,
             author: author,
-            isbn: isbn
+            isbn: isbn,
+            page: 0
         }
         submitBook(book);
-
         setTitle(''); 
         setAuthor(''); 
         setISBN(''); 
+        setPage('');
     }
 
     return (
@@ -40,6 +42,7 @@ const BlogForm = ({submitBook}) => {
                 value={isbn}
                 onChange={(e) => setISBN(e.target.value)}></input>
             </div>
+            <br></br>
             <button type='submit'>Submit</button>
         </form>
     )
